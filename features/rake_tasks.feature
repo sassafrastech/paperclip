@@ -23,14 +23,14 @@ Feature: Rake tasks
       has_attached_file :attachment, :path => ":rails_root/public/system/:attachment/:style/:filename",
                                      :styles => { :medium => "100x100#" }
       """
-    When I successfully run `bundle exec rake paperclip:refresh:thumbnails CLASS=User --trace`
+    When I successfully run `rake paperclip:refresh:thumbnails CLASS=User --trace`
     Then the attachment "original/5k.png" should exist
     And the attachment "medium/5k.png" should have a dimension of 100x100
 
   Scenario: Paperclip refresh metadata task
     When I upload the fixture "5k.png"
     And I swap the attachment "original/5k.png" with the fixture "12k.png"
-    And I successfully run `bundle exec rake paperclip:refresh:metadata CLASS=User --trace`
+    And I successfully run `rake paperclip:refresh:metadata CLASS=User --trace`
     Then the attachment should have the same content type as the fixture "12k.png"
     And the attachment should have the same file size as the fixture "12k.png"
 
@@ -43,7 +43,7 @@ Feature: Rake tasks
       has_attached_file :attachment, :path => ":rails_root/public/system/:attachment/:style/:filename",
                                      :styles => { :medium => "200x200#" }
       """
-    When I successfully run `bundle exec rake paperclip:refresh:missing_styles --trace`
+    When I successfully run `rake paperclip:refresh:missing_styles --trace`
     Then the attachment file "original/5k.png" should exist
     And the attachment file "medium/5k.png" should exist
 
@@ -57,6 +57,6 @@ Feature: Rake tasks
       has_attached_file :attachment, :path => ":rails_root/public/system/:attachment/:style/:filename"
       validates_attachment_size :attachment, :less_than => 10.kilobytes
       """
-    And I successfully run `bundle exec rake paperclip:clean CLASS=User --trace`
+    And I successfully run `rake paperclip:clean CLASS=User --trace`
     Then the attachment file "original/5k.png" should exist
     But the attachment file "original/12k.png" should not exist
