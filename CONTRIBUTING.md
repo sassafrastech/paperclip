@@ -48,7 +48,7 @@ testing against multiple version of Ruby on Rails. This helps us to make sure
 that Paperclip performs correctly with them.
 
 Paperclip also uses [RSpec](http://rspec.info) for its unit tests. If you submit
-tests that are not written for Cucumber or RSpec without a very good reason, you
+tests that are not written for RSpec without a very good reason, you
 will be asked to rewrite them before we'll accept.
 
 ### Bootstrapping your test suite:
@@ -63,15 +63,14 @@ version of Rails, which defined in `gemfiles/*.gemfile`.
 
     bundle exec appraisal rake
 
-This will run RSpec and Cucumber against all version of Rails
+This will run RSpec against all version of Rails
 
-### To run single Test::Unit or Cucumber test
+### To run single Test::Unit test
 
 You need to specify a `BUNDLE_GEMFILE` pointing to the gemfile before running
 the normal test command:
 
     BUNDLE_GEMFILE=gemfiles/4.1.gemfile rspec spec/paperclip/attachment_spec.rb
-    BUNDLE_GEMFILE=gemfiles/4.1.gemfile cucumber features/basic_integration.feature
 
 Syntax
 ------
