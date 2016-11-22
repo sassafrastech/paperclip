@@ -1,6 +1,6 @@
 Given /^I generate a new rails application$/ do
   steps %{
-    When I run `rails new #{APP_NAME} --skip-bundle`
+    When I run `bundle exec rails new #{APP_NAME} --skip-bundle`
     And I cd to "#{APP_NAME}"
   }
 
@@ -89,19 +89,19 @@ Given "I empty the application.js file" do
 end
 
 Given /^I run a rails generator to generate a "([^"]*)" scaffold with "([^"]*)"$/ do |model_name, attributes|
-  step %[I successfully run `rails generate scaffold #{model_name} #{attributes}`]
+  step %[I successfully run `bundle exec rails generate scaffold #{model_name} #{attributes}`]
 end
 
 Given /^I run a paperclip generator to add a paperclip "([^"]*)" to the "([^"]*)" model$/ do |attachment_name, model_name|
-  step %[I successfully run `rails generate paperclip #{model_name} #{attachment_name}`]
+  step %[I successfully run `bundle exec rails generate paperclip #{model_name} #{attachment_name}`]
 end
 
 Given /^I run a migration$/ do
-  step %[I successfully run `rake db:migrate --trace`]
+  step %[I successfully run `bundle exec rake db:migrate --trace`]
 end
 
 When /^I rollback a migration$/ do
-  step %[I successfully run `rake db:rollback STEPS=1 --trace`]
+  step %[I successfully run `bundle exec rake db:rollback STEPS=1 --trace`]
 end
 
 Given /^I update my new user view to include the file upload field$/ do
