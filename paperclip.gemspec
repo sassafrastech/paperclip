@@ -24,13 +24,11 @@ Gem::Specification.new do |s|
   s.requirements << "ImageMagick"
   s.required_ruby_version = ">= 2.1.0"
 
-  s.add_dependency('activemodel', '>= 4.2.0')
-  s.add_dependency('activesupport', '>= 4.2.0')
   s.add_dependency('cocaine', '~> 0.5.5')
   s.add_dependency('mime-types')
   s.add_dependency('mimemagic', '~> 0.3.0')
+  s.add_dependency('rails', '>= 4.2.0')
 
-  s.add_development_dependency('rails', '>= 4.2.0')
   s.add_development_dependency('shoulda')
   s.add_development_dependency('rspec', '~> 3.0')
   s.add_development_dependency('appraisal')

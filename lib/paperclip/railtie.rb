@@ -2,8 +2,6 @@ require 'paperclip'
 require 'paperclip/schema'
 
 module Paperclip
-  require 'rails'
-
   class Railtie < Rails::Railtie
     initializer 'paperclip.insert_into_active_record' do |app|
       ActiveSupport.on_load :active_record do
